@@ -1,5 +1,5 @@
 import Metashape, math
-import numpy as np
+import numpy as np # “C:\Program Files\Agisoft\Metashape Pro\python\python.exe” -m pip install numpy
 
 path = Metashape.app.getSaveFileName("Specify the export file path:", filter="Text file (*.txt);;All formats (*.*)")
 file = open(path, "wt")
