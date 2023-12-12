@@ -1,5 +1,6 @@
 import Metashape, math
 import numpy as np # "C:\Program Files\Agisoft\Metashape Pro\python\python.exe" -m pip install numpy==1.13.3
+# https://agisoft.freshdesk.com/support/solutions/articles/31000136860-how-to-install-external-python-module-to-metashape-professional-package
 
 path = Metashape.app.getSaveFileName("Specify the export file path:", filter="Text file (*.txt);;All formats (*.*)")
 file = open(path, "wt")
@@ -11,7 +12,7 @@ if chunk.transform.translation and chunk.transform.rotation and chunk.transform.
     T = chunk.crs.localframe(T.mulp(chunk.region.center)) * T
 R = T.rotation() * T.scale()
 
-for point in chunk.point_cloud.points:
+for point in chunk.tie_points.points:
     if not point.valid:
         continue
     cov = point.cov
